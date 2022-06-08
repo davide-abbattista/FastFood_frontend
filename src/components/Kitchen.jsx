@@ -23,7 +23,7 @@ class Kitchen extends React.Component {
             <div>
                 <p>Lista ordini</p>
             {this.state.orders.map(ordine => (
-                <li>{ordine.id}</li>
+                <li>{ordine.orderId}</li>
                 ))}
             </div>
         )

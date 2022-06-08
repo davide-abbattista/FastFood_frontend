@@ -24,7 +24,7 @@ class Client extends React.Component {
             <div>
                 <p>Lista prodotti</p>
                 {this.state.products.map((product)=>(
-                    <li>{product.img}</li>
+                    <li>{product.productId}</li>
                 ))}
             </div>
         )
