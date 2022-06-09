@@ -1,10 +1,12 @@
 import React from 'react';
 import mainService from "../services/mainService";
+import "./styles/Kitchen.css"
 
 class Kitchen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {orders: []}
+
     }
 
     componentDidMount() {
@@ -18,13 +20,39 @@ class Kitchen extends React.Component {
             })
         })
     }
+    refreshPage = () => {
+        window.location.reload(false);
+    }
+
+    concludeOrder(id) {
+        mainService.concludeOrder(id).then(data => {
+            console.log(data);
+        })
+        window.location.reload(false);
+    }
     render() {
         return (
             <div>
-                <p>Lista ordini</p>
+                <div class="header">
+                    <h3 class="title">Lista ordini</h3>
+                    <button className="updatePage" onClick={()=>this.refreshPage()}>Ricerca nuovi ordini</button>
+                </div>
             {this.state.orders.map(ordine => (
-                <li>{ordine.orderId}</li>
+                <div class="orderContainer">
+                    <b>ID Ordine:</b> {ordine._id}
+                    <br/>
+                    <b>Cliente:</b> {ordine.clientName}
+                    <br/>
+                    <b>Prodotti:</b>
+                    {ordine.products.map((product)=>(
+                        <li>{product.name}</li>
+                    ))}
+                    <br/>
+                    <b>Totale:</b>{ordine.total}€
+                    <button class="completeOrder" onClick={()=>this.concludeOrder(ordine.orderId)}>Completa ordine</button>
+                </div>
                 ))}
+
             </div>
         )
     }

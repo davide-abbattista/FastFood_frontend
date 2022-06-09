@@ -14,6 +14,14 @@ export default {
         return fetch(GET_ORDERS_URL, {
             method: "get",
             headers: GET_CLIENT_HEADERS
-        }).then(res => res.json()).then(data => data)
+        }).then(res => res.json()).then(data =>data)
+    },
+
+    concludeOrder:(id) => {
+        let url = 'http://localhost:8080/api/v1/orders/'+id+'?_method=PUT';
+        return fetch(url, {
+            method: "post",
+            headers: GET_CLIENT_HEADERS,
+        }).then(res=>res.json()).then(data => console.log(data))
     }
 };

@@ -1,0 +1,42 @@
+.title {
+    margin-left: 20px;
+}
+
+.orderContainer {
+    margin-left: 50px;
+    margin-top: 20px;
+    display: inline-grid;
+    background-color: #CEB92C;
+    padding: 10px;
+    border-radius: 20px;
+}
+.completeOrder {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    transition: transform .2s;
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.completeOrder:hover {
+    transform: scale(1.09);
+}
+.header {
+    display: flex;
+}
+.updatePage {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    transition: transform .2s;
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.updatePage:hover {
+    transform: scale(1.09);
+}
