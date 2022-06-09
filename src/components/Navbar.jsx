@@ -1,4 +1,7 @@
 import React from 'react';
+import "./styles/Navbar.css"
+
+
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -8,8 +11,10 @@ class Navbar extends React.Component {
     render() {
         return (
             <nav>
-                Benvenuti sul sito ufficiale di Mc Bitonto's
+                <h1>Benvenuti sul sito ufficiale di Mc Bitonto's</h1>
+                <div class="back">
                 <a href="/">  Torna indietro alla selezione profilo</a>
+                </div>
             </nav>
         )
     }

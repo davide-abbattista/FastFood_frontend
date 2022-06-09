@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    margin: 2px;
+    background-color: #373E98;
+    color: white;
+    height: 50px;
+    align-items: center;
+}
+.back {
+    margin-left: auto;
+    margin-right: 7px;
+}
+.back a {
+    color: white;
+    text-decoration: none;
+}
+
+nav h1 {
+    font-size: 19px;
+    margin-left: 10px;
+}
