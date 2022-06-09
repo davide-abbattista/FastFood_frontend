@@ -3,6 +3,7 @@ import Clients from "./components/Client"
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Kitchen from "./components/Kitchen";
+import Admin from "./components/Admin"
 
 function App() {
     //routing
@@ -16,6 +17,10 @@ function App() {
             break
         case "/kitchen":
             Component = Kitchen
+            break
+        case "/admin":
+            Component = Admin
+            break
     }
 
   return (

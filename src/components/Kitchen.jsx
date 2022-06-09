@@ -49,7 +49,7 @@ class Kitchen extends React.Component {
                     ))}
                     <br/>
                     <b>Totale:</b>{ordine.total}€
-                    <button class="completeOrder" onClick={()=>this.concludeOrder(ordine.orderId)}>Completa ordine</button>
+                    <button class="completeOrder" onClick={()=>this.concludeOrder(ordine._id)}>Completa ordine</button>
                 </div>
                 ))}
 

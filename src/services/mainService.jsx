@@ -23,5 +23,13 @@ export default {
             method: "post",
             headers: GET_CLIENT_HEADERS,
         }).then(res=>res.json()).then(data => console.log(data))
+    },
+
+    deleteProduct:(prodId) => {
+        let url1 = 'http://localhost:8080/api/v1/products/'+prodId+'?_method=DELETE'
+        return fetch(url1, {
+            method: "post",
+            header: GET_CLIENT_HEADERS,
+        }).then(res=>res.json()).then(data=>console.log(data));
     }
 };
