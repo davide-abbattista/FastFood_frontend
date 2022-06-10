@@ -9,6 +9,7 @@ class Client extends React.Component {
             cart: [],
             total: 0}
         this.addToCart = this.addToCart.bind(this);
+        this.removeProduct = this.removeProduct.bind(this);
     }
 
     componentDidMount() {
@@ -23,13 +24,24 @@ class Client extends React.Component {
         })
     }
 
+    removeProduct = (item) => {
+        let newTotal = this.state.total;
+        let a = this.state.cart.indexOf(item);
+        console.log(a);
+        this.state.cart.splice(a,1);
+        console.log(this.state.cart);
+        newTotal = newTotal -item.price;
+        this.setState({total: newTotal});
+    }
+
+
     addToCart = (product) => {
             let {cart} = this.state;
-            let {total}=this.state;
+            let {total}= this.state;
             cart.push(product);
             console.log(cart);
             this.setState({cart:cart});
-            total += product.price
+            total += product.price;
             this.setState({total:total})
         };
 
@@ -52,9 +64,10 @@ class Client extends React.Component {
                 <div class="cart">
                     <h2 class="title">Carrello</h2>
                     {this.state.cart.map((item)=> {
-                        return <div class="cart-item">
+                        return <div class="cart-item" key={item.id}>
                             <img class="cartImage" src={item.img}/>
                             {item.name} - {item.price}€
+                            <button onClick={()=>this.removeProduct(item)}>Rimuovi</button>
                         </div>
                     })}
                     <div class="total">Totale: {this.state.total}€</div>

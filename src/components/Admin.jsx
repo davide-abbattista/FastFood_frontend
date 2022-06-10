@@ -6,7 +6,8 @@ import AdminForm from "./AdminForm";
 class Admin extends React.Component {
     constructor() {
         super();
-        this.state = {products: []};
+        this.state = {products: [],
+        modifiedProduct: []};
     }
     componentDidMount() {
         this.getProducts();
@@ -17,6 +18,10 @@ class Admin extends React.Component {
         })
 
     }
+    modifieElement = (product) => {
+
+
+}
 
     getProducts() {
         mainService.getProducts().then(data => {
@@ -46,6 +51,27 @@ class Admin extends React.Component {
                 </div>
                 <div class="form">
                     <AdminForm />
+                </div>
+                <div>
+                    Modifica elemento:
+                    <form>
+                        <select name="type" onChange={this.handleInputChange}>
+                            <option>Seleziona una categoria:</option>
+                            <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Panino</option>
+                            <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Bibita</option>
+                            <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Contorno</option>
+                        </select>
+                        <br/>
+                        <label>Nome: <input type="text"  value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
+                        <br/>
+                        <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange} required/></label>
+                        <br/>
+                        <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
+                        <br/>
+                        <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
+                        <br/>
+                        <button type="submit">Inserisci prodotto!</button>
+                    </form>
                 </div>
             </div>
         )

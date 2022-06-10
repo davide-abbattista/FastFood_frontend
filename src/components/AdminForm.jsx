@@ -57,6 +57,7 @@ class AdminForm extends React.Component {
                 <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
                 <br/>
                 <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
+                    <br/>
                 <button type="submit">Inserisci prodotto!</button>
                 </form>
             </div>
