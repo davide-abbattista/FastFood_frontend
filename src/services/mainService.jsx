@@ -1,6 +1,7 @@
 const GET_CLIENT_URL = 'http://localhost:8080/api/v1/products/',
     GET_ORDERS_URL = 'http://localhost:8080/api/v1/orders/',
-    GET_CLIENT_HEADERS = {"Content-Type":"application/json"};
+    GET_CLIENT_HEADERS = {"Content-Type":"application/json"},
+    POST_ORDERS_HEADER = {"Content-Type":"application/x-www-form-urlencoded"}
 
 export default {
     getProducts: () => {
@@ -36,7 +37,7 @@ export default {
     createProduct: (requestBody) => {
         return fetch(GET_CLIENT_URL, {
             method: "post",
-            header: GET_CLIENT_HEADERS,
+            headers: GET_CLIENT_HEADERS,
             body: JSON.stringify(requestBody)
         }).then(res=>res.json()).then(data=>console.log(data))
     }

@@ -5,11 +5,11 @@ class AdminForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: '',
-            name: '',
-            ingredients: '',
+            type: "",
+            name: "",
+            ingredients: "",
             price: 0,
-            img: ''
+            img: ""
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,11 +23,10 @@ class AdminForm extends React.Component {
         this.setState({
             [name]: value,
         });
-        console.log(this.state);
     }
 
     handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         const requestBody = {
             type: this.state.type,
             name: this.state.name,
@@ -35,27 +34,29 @@ class AdminForm extends React.Component {
             price: this.state.price,
             img: this.state.img
         }
-        mainService.createProduct(requestBody);
+        console.log(requestBody);
+        mainService.createProduct(requestBody).then(data=>console.log(data));
+        window.location.reload(false);
     }
 
     render () {
         return (
             <div class="form" >
                 <form onSubmit={this.handleSubmit} >
-                <select name="type" onChange={this.handleInputChange} required>
+                <select name="type" onChange={this.handleInputChange}>
                     <option>Seleziona una categoria:</option>
-                    <option name="type" value="Panino" onChange={this.handleInputChange} required>Panino</option>
-                    <option name="type" value="Bibita" onChange={this.handleInputChange} required>Bibita</option>
-                    <option name="type" value="Contorno" onChange={this.handleInputChange} required>Contorno</option>
+                    <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Panino</option>
+                    <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Bibita</option>
+                    <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Contorno</option>
                 </select>
                 <br/>
-                <label>Nome: <input type="text" name="name" onChange={this.handleInputChange} required/></label>
+                <label>Nome: <input type="text"  value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
                 <br/>
-                <label>Ingredienti: <input type="text" name="ingredients" onChange={this.handleInputChange}required/></label>
+                <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange} required/></label>
                 <br/>
-                <label>Prezzo: <input type="number" name="price" onChange={this.handleInputChange}required/></label>
+                <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
                 <br/>
-                <label>Immagine: <input type="text" name="img" onChange={this.handleInputChange}/></label>
+                <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
                 <button type="submit">Inserisci prodotto!</button>
                 </form>
             </div>
