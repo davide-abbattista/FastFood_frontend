@@ -31,5 +31,13 @@ export default {
             method: "post",
             header: GET_CLIENT_HEADERS,
         }).then(res=>res.json()).then(data=>console.log(data));
+    },
+
+    createProduct: (requestBody) => {
+        return fetch(GET_CLIENT_URL, {
+            method: "post",
+            header: GET_CLIENT_HEADERS,
+            body: JSON.stringify(requestBody)
+        }).then(res=>res.json()).then(data=>console.log(data))
     }
 };
