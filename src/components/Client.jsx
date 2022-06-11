@@ -7,9 +7,15 @@ class Client extends React.Component {
         super(props)
             this.state = {products: [],
             cart: [],
-            total: 0}
+            total: 0,
+                clientName: '',
+                productIDs: [],
+                totalCart: 0
+            }
         this.addToCart = this.addToCart.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.sendOrder = this.sendOrder.bind(this);
     }
 
     componentDidMount() {
@@ -30,10 +36,10 @@ class Client extends React.Component {
         console.log(a);
         this.state.cart.splice(a,1);
         console.log(this.state.cart);
+        console.log(this.state.order);
         newTotal = newTotal -item.price;
         this.setState({total: newTotal});
     }
-
 
     addToCart = (product) => {
             let {cart} = this.state;
@@ -42,8 +48,38 @@ class Client extends React.Component {
             console.log(cart);
             this.setState({cart:cart});
             total += product.price;
-            this.setState({total:total})
+            this.setState({total:total});
+            let {productIDs} = this.state;
+            productIDs.push(product._id);
+            this.setState({productIDs: productIDs});
+            console.log(this.state.productIDs);
         };
+
+
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value,
+            totalCart: this.state.total
+        });
+        console.log(this.state.clientName)
+    }
+
+    sendOrder=(e) => {
+        e.preventDefault();
+        const requestBody = {
+            clientName: this.state.clientName,
+            products: this.state.productIDs,
+            total: this.state.totalCart
+        }
+        console.log(requestBody);
+        mainService.createOrder(requestBody).then(data=>console.log(data));
+        window.location.reload(false);
+    }
 
 
     render() {
@@ -71,7 +107,17 @@ class Client extends React.Component {
                         </div>
                     })}
                     <div class="total">Totale: {this.state.total}€</div>
-                </div>
+
+                    <form onSubmit={this.sendOrder}>
+                        <div class="nameandsurname">
+                        <label>Nome e cognome: <input type="text"  value={this.state.value} name="clientName" onChange={this.handleInputChange} required/></label>
+                        </div>
+                            <br/>
+                        <label>Inserisci numero carta: <input type="number" maxLength="16" minLength="16"/></label>
+                        <button type="submit">Checkout</button>
+                    </form>
+                    </div>
+
             </div>
         )
     }
