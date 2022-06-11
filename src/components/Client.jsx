@@ -10,7 +10,8 @@ class Client extends React.Component {
             total: 0,
                 clientName: '',
                 productIDs: [],
-                totalCart: 0
+                totalCart: 0,
+                insertOrder: ''
             }
         this.addToCart = this.addToCart.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
@@ -33,8 +34,9 @@ class Client extends React.Component {
     removeProduct = (item) => {
         let newTotal = this.state.total;
         let a = this.state.cart.indexOf(item);
-        console.log(a);
         this.state.cart.splice(a,1);
+        let b = this.state.productIDs.indexOf(item._id);
+        this.state.productIDs.splice(b,1);
         console.log(this.state.cart);
         console.log(this.state.order);
         newTotal = newTotal -item.price;
@@ -52,7 +54,6 @@ class Client extends React.Component {
             let {productIDs} = this.state;
             productIDs.push(product._id);
             this.setState({productIDs: productIDs});
-            console.log(this.state.productIDs);
         };
 
 
@@ -66,7 +67,6 @@ class Client extends React.Component {
             [name]: value,
             totalCart: this.state.total
         });
-        console.log(this.state.clientName)
     }
 
     sendOrder=(e) => {
@@ -77,8 +77,15 @@ class Client extends React.Component {
             total: this.state.totalCart
         }
         console.log(requestBody);
-        mainService.createOrder(requestBody).then(data=>console.log(data));
-        window.location.reload(false);
+        mainService.createOrder(requestBody).then(data=> {
+            this.setState({
+                insertOrder: data.message
+            })
+        });
+        setTimeout(function() {
+            window.location.reload()
+        }, 1000)
+        //window.location.reload(false);
     }
 
 
@@ -115,6 +122,7 @@ class Client extends React.Component {
                             <br/>
                         <label>Inserisci numero carta: <input type="number" maxLength="16" minLength="16"/></label>
                         <button type="submit">Checkout</button>
+                        <div>{this.state.insertOrder}</div>
                     </form>
                     </div>
 

@@ -38,7 +38,7 @@ export default {
             method: "post",
             headers: GET_CLIENT_HEADERS,
             body: JSON.stringify(requestBody)
-        }).then(res=>res.json()).then(data=>console.log(data))
+        }).then(res=>res.json()).then(data=>data)
     },
 
     createOrder: (requestBody) => {
@@ -46,6 +46,6 @@ export default {
             method: "post",
             headers: GET_CLIENT_HEADERS,
             body: JSON.stringify(requestBody)
-        }).then(res=>res.json()).then(data=>console.log(data))
+        }).then(res=>res.json()).then(data=>data)
     }
 };
