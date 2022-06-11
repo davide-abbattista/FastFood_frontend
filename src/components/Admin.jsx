@@ -16,7 +16,7 @@ class Admin extends React.Component {
         mainService.deleteProduct(id).then(data => {
             console.log(data)
         })
-
+        window.location.reload(false);
     }
     modifieElement = (product) => {
 

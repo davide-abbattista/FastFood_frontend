@@ -5,7 +5,7 @@ class AdminForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: "",
+            type: "Panino",
             name: "",
             ingredients: "",
             price: 0,
