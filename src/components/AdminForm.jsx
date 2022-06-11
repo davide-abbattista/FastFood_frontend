@@ -43,22 +43,21 @@ class AdminForm extends React.Component {
         return (
             <div class="form" >
                 <form onSubmit={this.handleSubmit} >
-                <select name="type" onChange={this.handleInputChange}>
-                    <option>Seleziona una categoria:</option>
-                    <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Panino</option>
-                    <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Bibita</option>
-                    <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Contorno</option>
-                </select>
-                <br/>
-                <label>Nome: <input type="text"  value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
-                <br/>
-                <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange} required/></label>
-                <br/>
-                <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
-                <br/>
-                <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
+                    <label>Seleziona una categoria: <select name="type" onChange={this.handleInputChange} value={this.state.value} required>
+                        <option name="type">Panino</option>
+                        <option name="type">Bibita</option>
+                        <option name="type">Contorno</option>
+                    </select></label>
                     <br/>
-                <button type="submit">Inserisci prodotto!</button>
+                    <label>Nome: <input type="text"  value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
+                    <br/>
+                    <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange}/></label>
+                    <br/>
+                    <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
+                    <br/>
+                    <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
+                    <br/>
+                    <button type="submit">Inserisci prodotto!</button>
                 </form>
             </div>
         )
