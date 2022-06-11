@@ -49,13 +49,13 @@ class AdminForm extends React.Component {
                         <option name="type">Contorno</option>
                     </select></label>
                     <br/>
-                    <label>Nome: <input type="text"  value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
+                    <label>Nome: <input type="text" value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
                     <br/>
                     <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange}/></label>
                     <br/>
-                    <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
+                    <label>Prezzo: <input type="number" value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
                     <br/>
-                    <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
+                    <label>Immagine: <input type="text" value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
                     <br/>
                     <button type="submit">Inserisci prodotto!</button>
                 </form>

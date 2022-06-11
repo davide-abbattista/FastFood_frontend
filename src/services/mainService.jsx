@@ -47,5 +47,14 @@ export default {
             headers: GET_CLIENT_HEADERS,
             body: JSON.stringify(requestBody)
         }).then(res=>res.json()).then(data=>data)
+    },
+
+    updateProduct: (requestBody,id) => {
+        let UPDATE_PRODUCT = 'http://localhost:8080/api/v1/products/'+id+'?_method=PUT'
+        return fetch(UPDATE_PRODUCT, {
+            method: "post",
+            headers: GET_CLIENT_HEADERS,
+            body: JSON.stringify(requestBody)
+        }).then(res=>res.json()).then(data=>console.log(data))
     }
 };

@@ -7,7 +7,17 @@ class Admin extends React.Component {
     constructor() {
         super();
         this.state = {products: [],
-        modifiedProduct: []};
+        modifiedProduct: [],
+            id: '',
+            type: "",
+            name: "",
+            ingredients: "",
+            price: 0,
+            img: ""
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.modifieElement = this.modifieElement.bind(this);
     }
     componentDidMount() {
         this.getProducts();
@@ -19,9 +29,21 @@ class Admin extends React.Component {
         window.location.reload(false);
     }
     modifieElement = (product) => {
-
-
-}
+        document.getElementById("1").value = product.name;
+        document.getElementById("2").value = product.ingredients;
+        document.getElementById("3").value = product.price;
+        document.getElementById("4").value = product.img;
+        document.getElementById("5").value = product.type;
+        this.setState({
+            id: product._id,
+            type: product.type,
+            name: product.name,
+            ingredients: product.ingredients,
+            price: product.price,
+            img: product.img
+        })
+        console.log(this.state);
+    }
 
     getProducts() {
         mainService.getProducts().then(data => {
@@ -30,6 +52,28 @@ class Admin extends React.Component {
             })
         })
     }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value,
+        });
+    }
+    handleSubmit(id) {
+        const requestBody = {
+            type: this.state.type,
+            name: this.state.name,
+            ingredients: this.state.ingredients,
+            price: this.state.price,
+            img: this.state.img
+        }
+        console.log(requestBody);
+        mainService.updateProduct(requestBody,id).then(data=>console.log(data))
+    }
+
     render () {
         return (
             <div className="all">
@@ -42,7 +86,7 @@ class Admin extends React.Component {
                             <p>Ingredienti: <em>{product.ingredients}</em></p>
                             <div class="buttons">
                             <p>{product.price} €</p>
-                            <button className="addToCart">Modifica
+                            <button className="addToCart" onClick={()=>this.modifieElement(product)}>Modifica
                             </button>
                             <button className="delete" onClick={()=>this.deleteProduct(product._id)}>Elimina</button>
                             </div>
@@ -55,22 +99,21 @@ class Admin extends React.Component {
                 <div>
                     Modifica elemento:
                     <form>
-                        <select name="type" onChange={this.handleInputChange}>
-                            <option>Seleziona una categoria:</option>
-                            <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Panino</option>
-                            <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Bibita</option>
-                            <option name="type" value={this.state.value} onChange={this.handleInputChange} required>Contorno</option>
-                        </select>
+                        <label>Seleziona una categoria: <select name="type" id="5" onChange={this.handleInputChange} value={this.state.value} required>
+                            <option name="type">Panino</option>
+                            <option name="type">Bibita</option>
+                            <option name="type">Contorno</option>
+                        </select></label>
                         <br/>
-                        <label>Nome: <input type="text"  value={this.state.value} name="name" onChange={this.handleInputChange} required/></label>
+                        <label>Nome: <input type="text" id="1" placeholder={this.state.modifiedProduct.name}  name="name" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange} required/></label>
+                        <label>Ingredienti: <input type="text" id="2" placeholder={this.state.modifiedProduct.ingredients} name="ingredients" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <label>Prezzo: <input type="number"  value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
+                        <label>Prezzo: <input type="number" id="3" placeholder={this.state.modifiedProduct.price} name="price" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <label>Immagine: <input type="text"  value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
+                        <label>Immagine: <input type="text" id="4" placeholder={this.state.modifiedProduct.img} name="img" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <button type="submit">Inserisci prodotto!</button>
+                        <button onClick={()=>this.handleSubmit(this.state.id)}>Modifica prodotto!</button>
                     </form>
                 </div>
             </div>
