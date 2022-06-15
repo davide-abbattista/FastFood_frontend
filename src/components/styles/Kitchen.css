@@ -6,18 +6,18 @@
     margin-left: 50px;
     margin-top: 20px;
     display: inline-grid;
-    background-color: #CEB92C;
+    background-image: linear-gradient(to bottom right, #FDFCFB, #E2D1C3);
     padding: 10px;
     border-radius: 20px;
 }
 .completeOrder {
-    color: black;
-    background-color: white;
-    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, #72FFB6, #10D164);
     transition: transform .2s;
     width: 100px;
     height: 40px;
     margin-top: 10px;
+    border-radius: 15px;
+    border-color: #00ff02;
 }
 
 .completeOrder:hover {

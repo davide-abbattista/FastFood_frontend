@@ -1,14 +1,17 @@
 .delete {
-    background-color: red;
+    background-image: linear-gradient(to bottom right, #FF512F, #DD2476);
     color: black;
     border-radius: 10px;
     transition: transform .2s;
     width: 100px;
     height: 40px;
+    margin-left: 8px;
+    border-color: #ff1776;
 }
 
+
 .delete:hover {
-    transform: scale(1.3);
+    transform: scale(1.07);
 }
 
 .all {
@@ -18,7 +21,33 @@
 .products  {
     flex: 2;
 }
+.product-image {
+    height: 100px;
+    width: 150px;
+}
 
 .form {
     flex: 1;
+    margin-top: 20px;
+    margin-right: 80px;
+}
+
+.modifieTitle{
+    margin-top: 20px;
+}
+.button {
+    background-image: linear-gradient(to bottom right, #00C0FF, #4218B8);
+    color: white;
+    padding: 6px;
+    margin-top: 10px;
+    border-color: #4218B8;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+div input {
+    border-radius: 10px;
+}
+
+div select {
+    border-radius: 6px;
 }

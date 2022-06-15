@@ -99,7 +99,7 @@ class Client extends React.Component {
                         <img class="product-image" src={product.img}/>
                         <h3>{product.name}</h3>
                         <p>Ingredienti: <em>{product.ingredients}</em></p>
-                        <p>{product.price} €</p>
+                        <p>Prezzo: {product.price} €</p>
                         <button class="addToCart" onClick={()=>this.addToCart(product)}>Aggiungi al carrello</button>
                     </div>
                 ))}
@@ -110,18 +110,19 @@ class Client extends React.Component {
                         return <div class="cart-item" key={item.id}>
                             <img class="cartImage" src={item.img}/>
                             {item.name} - {item.price}€
-                            <button onClick={()=>this.removeProduct(item)}>Rimuovi</button>
+                            <button class="removeItem" onClick={()=>this.removeProduct(item)}>Rimuovi</button>
                         </div>
                     })}
                     <div class="total">Totale: {this.state.total}€</div>
 
                     <form onSubmit={this.sendOrder}>
                         <div class="nameandsurname">
-                        <label>Nome e cognome: <input type="text"  value={this.state.value} name="clientName" onChange={this.handleInputChange} required/></label>
+                        <label>Nome e cognome: <input type="text" class="dati" value={this.state.value} name="clientName" onChange={this.handleInputChange} required/></label>
                         </div>
                             <br/>
-                        <label>Inserisci numero carta: <input type="number" maxLength="16" minLength="16"/></label>
-                        <button type="submit">Checkout</button>
+                        <label class="ccn">Inserisci numero carta: <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX" required/></label>
+                        <br/>
+                        <button type="submit" class="checkout">Checkout</button>
                         <div>{this.state.insertOrder}</div>
                     </form>
                     </div>

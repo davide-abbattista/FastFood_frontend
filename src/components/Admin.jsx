@@ -78,7 +78,7 @@ class Admin extends React.Component {
         return (
             <div className="all">
                 <div className="products">
-                    <h2 className="title">Modifica o elimina un prodotto</h2>
+                    <h2 className="title">Elenco prodotti</h2>
                     {this.state.products.map((product) => (
                         <div className="products-container">
                             <img className="product-image" src={product.img}/>
@@ -93,11 +93,12 @@ class Admin extends React.Component {
                         </div>
                     ))}
                 </div>
+                <div class="formModifier-container">
                 <div class="form">
                     <AdminForm />
                 </div>
-                <div>
-                    Modifica elemento:
+                <div class="modifie">
+                    <h4 class="modifieTitle">Modifica un prodotto</h4>
                     <form>
                         <label>Seleziona una categoria: <select name="type" id="5" onChange={this.handleInputChange} value={this.state.value} required>
                             <option name="type">Panino</option>
@@ -107,14 +108,15 @@ class Admin extends React.Component {
                         <br/>
                         <label>Nome: <input type="text" id="1" placeholder={this.state.modifiedProduct.name}  name="name" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <label>Ingredienti: <input type="text" id="2" placeholder={this.state.modifiedProduct.ingredients} name="ingredients" value={this.state.value} onChange={this.handleInputChange} required/></label>
+                        <label>Ingredienti: <input type="text" id="2" placeholder={this.state.modifiedProduct.ingredients} name="ingredients" value={this.state.value} onChange={this.handleInputChange}/></label>
                         <br/>
                         <label>Prezzo: <input type="number" id="3" placeholder={this.state.modifiedProduct.price} name="price" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
                         <label>Immagine: <input type="text" id="4" placeholder={this.state.modifiedProduct.img} name="img" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <button onClick={()=>this.handleSubmit(this.state.id)}>Modifica prodotto!</button>
+                        <button class="button" onClick={()=>this.handleSubmit(this.state.id)}>Modifica prodotto!</button>
                     </form>
+                </div>
                 </div>
             </div>
         )
