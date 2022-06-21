@@ -111,7 +111,7 @@ class Admin extends React.Component {
                         <br/>
                         <label>Ingredienti: <input type="text" id="2" placeholder={this.state.modifiedProduct.ingredients} name="ingredients" value={this.state.value} onChange={this.handleInputChange}/></label>
                         <br/>
-                        <label>Prezzo: <input type="number" id="3" placeholder={this.state.modifiedProduct.price} name="price" value={this.state.value} onChange={this.handleInputChange} required/></label>
+                        <label>Prezzo: <input type="number" id="3" placeholder={this.state.modifiedProduct.price} name="price" step=".01" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
                         <label>Immagine: <input type="text" id="4" placeholder={this.state.modifiedProduct.img} name="img" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
