@@ -78,7 +78,8 @@ class Admin extends React.Component {
         return (
             <div className="all">
                 <div className="products">
-                    <h2 className="title">Elenco prodotti</h2>
+                    <h2 className="title">Modifica o elimina i prodotti</h2>
+                    <p class="modInfo">Cliccando "Modifica", il form a destra per la modifica verrà popolato con le informazioni del prodotto selezionato che potrai modificare liberamente!</p>
                     {this.state.products.map((product) => (
                         <div className="products-container">
                             <img className="product-image" src={product.img}/>

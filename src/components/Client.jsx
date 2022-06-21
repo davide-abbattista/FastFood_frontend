@@ -93,7 +93,7 @@ class Client extends React.Component {
         return(
             <div class="all">
                 <div class="products">
-                <h2 class="title">Lista prodotti</h2>
+                <h2 class="title">Scegli tra un sacco di prodotti deliziosi!</h2>
                 {this.state.products.map((product)=>(
                     <div class="products-container">
                         <img class="product-image" src={product.img}/>

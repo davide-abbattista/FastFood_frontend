@@ -3,7 +3,7 @@ import Clients from "./components/Client"
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Kitchen from "./components/Kitchen";
-import Admin from "./components/Admin"
+import Admin from "./components/Admin";
 
 function App() {
     //routing

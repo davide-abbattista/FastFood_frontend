@@ -51,3 +51,8 @@ div input {
 div select {
     border-radius: 6px;
 }
+
+.modInfo {
+    max-width: 1000px;
+    margin-left: 20px;
+}

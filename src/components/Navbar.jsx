@@ -1,5 +1,6 @@
 import React from 'react';
 import "./styles/Navbar.css"
+import logo from "./assets/logo.png"
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class Navbar extends React.Component {
         return (
             <nav>
                 <h1>Benvenuti sul sito ufficiale di Mc Bitonto's</h1>
+                <img className="logo" src={logo}/>
                 <div class="back">
                     <a href="/">  Torna indietro alla selezione profilo</a>
                 </div>

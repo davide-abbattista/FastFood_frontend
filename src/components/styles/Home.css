@@ -34,5 +34,5 @@
 }
 
 .selector:hover {
-    transform: scale(1.5);
+    transform: translateY(-12px);
 }
