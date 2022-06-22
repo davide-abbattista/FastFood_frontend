@@ -49,7 +49,7 @@ class Kitchen extends React.Component {
                     ))}
                     <br/>
                     <b>Data e ora ordine:</b>
-                    {ordine.createdAt.replace('T',' ').replace('Z',' ')}
+                    {ordine.createdAt.replace('T',' ').replace('.000Z',' ')}
                     <b>Totale:</b>{ordine.total}€
                     <button class="completeOrder" onClick={()=>this.concludeOrder(ordine._id)}>Completa ordine</button>
                 </div>
