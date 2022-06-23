@@ -33,12 +33,12 @@ class Kitchen extends React.Component {
     render() {
         return (
             <div>
-                <div class="header">
-                    <h3 class="title">Lista ordini</h3>
+                <div className="header">
+                    <h3 className="title">Lista ordini</h3>
                     <button className="updatePage" onClick={()=>this.refreshPage()}>Ricerca nuovi ordini</button>
                 </div>
             {this.state.orders.map(ordine => (
-                <div class="orderContainer">
+                <div className="orderContainer" key={ordine._id}>
                     <b>ID Ordine:</b> {ordine._id}
                     <br/>
                     <b>Cliente:</b> {ordine.clientName}
@@ -51,7 +51,7 @@ class Kitchen extends React.Component {
                     <b>Data e ora ordine:</b>
                     {ordine.createdAt.replace('T',' ').replace('.000Z',' ')}
                     <b>Totale:</b>{ordine.total}€
-                    <button class="completeOrder" onClick={()=>this.concludeOrder(ordine._id)}>Completa ordine</button>
+                    <button className="completeOrder" onClick={()=>this.concludeOrder(ordine._id)}>Completa ordine</button>
                 </div>
                 ))}
 

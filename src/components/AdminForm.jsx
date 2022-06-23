@@ -41,7 +41,7 @@ class AdminForm extends React.Component {
 
     render () {
         return (
-            <div class="form" >
+            <div className="form" >
                 <form onSubmit={this.handleSubmit} >
                     <h4>Aggiungi un nuovo prodotto</h4>
                     <label>Seleziona una categoria: <select name="type" onChange={this.handleInputChange} value={this.state.value} required>
@@ -58,7 +58,7 @@ class AdminForm extends React.Component {
                     <br/>
                     <label>Immagine: <input type="text" value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
                     <br/>
-                    <button type="submit" class="button">Inserisci prodotto!</button>
+                    <button type="submit" className="button">Inserisci prodotto!</button>
                 </form>
             </div>
         )

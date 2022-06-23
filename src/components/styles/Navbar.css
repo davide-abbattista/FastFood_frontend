@@ -13,6 +13,10 @@ nav {
 .back a {
     color: white;
     text-decoration: none;
+    opacity: 30%;
+}
+.back a:hover {
+    opacity: 100%;
 }
 .logo {
     width: 90px;

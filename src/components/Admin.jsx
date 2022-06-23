@@ -79,13 +79,13 @@ class Admin extends React.Component {
             <div className="all">
                 <div className="products">
                     <h2 className="title">Modifica o elimina i prodotti</h2>
-                    <p class="modInfo">Cliccando "Modifica", il form a destra per la modifica verrà popolato con le informazioni del prodotto selezionato che potrai modificare liberamente!</p>
+                    <p className="modInfo">Cliccando "Modifica", il form a destra per la modifica verrà popolato con le informazioni del prodotto selezionato che potrai modificare liberamente!</p>
                     {this.state.products.map((product) => (
                         <div className="products-container">
                             <img className="product-image" src={product.img}/>
                             <h3>{product.name}</h3>
                             <p>Ingredienti: <em>{product.ingredients}</em></p>
-                            <div class="buttons">
+                            <div className="buttons">
                             <p>{product.price} €</p>
                             <button className="addToCart" onClick={()=>this.modifieElement(product)}>Modifica
                             </button>
@@ -94,12 +94,12 @@ class Admin extends React.Component {
                         </div>
                     ))}
                 </div>
-                <div class="formModifier-container">
-                <div class="form">
+                <div className="formModifier-container">
+                <div className="form">
                     <AdminForm />
                 </div>
-                <div class="modifie">
-                    <h4 class="modifieTitle">Modifica un prodotto</h4>
+                <div className="modifie">
+                    <h4 className="modifieTitle">Modifica un prodotto</h4>
                     <form>
                         <label>Seleziona una categoria: <select name="type" id="5" onChange={this.handleInputChange} value={this.state.value} required>
                             <option name="type">Panino</option>
@@ -115,7 +115,7 @@ class Admin extends React.Component {
                         <br/>
                         <label>Immagine: <input type="text" id="4" placeholder={this.state.modifiedProduct.img} name="img" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
-                        <button class="button" onClick={()=>this.handleSubmit(this.state.id)}>Modifica prodotto!</button>
+                        <button className="button" onClick={()=>this.handleSubmit(this.state.id)}>Modifica prodotto!</button>
                     </form>
                 </div>
                 </div>

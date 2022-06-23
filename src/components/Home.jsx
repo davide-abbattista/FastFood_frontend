@@ -11,21 +11,21 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div class="home">
-                <div class="selector" href="/clients">
-                    <img class="icon" src={client}/>
+            <div className="home">
+                <div className="selector" href="/clients">
+                    <img className="icon" src={client} alt="cliente"/>
                     <br/>
-                    <a href="/clients" class="a1">Sono un cliente</a>
+                    <a href="/clients" className="a1" >Sono un cliente</a>
                 </div>
-                <div class="selector">
-                    <img class="icon" src={kitchen}/>
+                <div className="selector">
+                    <img className="icon" src={kitchen} alt="cuoco"/>
                     <br/>
-                <a href="/kitchen" class="a2">Sono un cuoco</a>
+                <a href="/kitchen" className="a2">Sono un cuoco</a>
                 </div>
-                <div class="selector">
-                    <img className="icon" src={admin}/>
+                <div className="selector">
+                    <img className="icon" src={admin} alt="admin"/>
                     <br/>
-                    <a href="/admin" class="a3">Sono un amministratore</a>
+                    <a href="/admin" className="a3">Sono un amministratore</a>
                 </div>
             </div>
         )

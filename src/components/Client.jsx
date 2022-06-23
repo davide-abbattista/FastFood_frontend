@@ -91,38 +91,38 @@ class Client extends React.Component {
 
     render() {
         return(
-            <div class="all">
-                <div class="products">
-                <h2 class="title">Scegli tra un sacco di prodotti deliziosi!</h2>
+            <div className="all">
+                <div className="products">
+                <h2 className="title">Scegli tra un sacco di prodotti deliziosi!</h2>
                 {this.state.products.map((product)=>(
-                    <div class="products-container">
-                        <img class="product-image" src={product.img}/>
+                    <div className="products-container" key={product._id}>
+                        <img className="product-image" src={product.img}/>
                         <h3>{product.name}</h3>
                         <p>Ingredienti: <em>{product.ingredients}</em></p>
                         <p>Prezzo: {product.price} €</p>
-                        <button class="addToCart" onClick={()=>this.addToCart(product)}>Aggiungi al carrello</button>
+                        <button className="addToCart" onClick={()=>this.addToCart(product)}>Aggiungi al carrello</button>
                     </div>
                 ))}
                 </div>
-                <div class="cart">
-                    <h2 class="title">Carrello</h2>
+                <div className="cart">
+                    <h2 className="title">Carrello</h2>
                     {this.state.cart.map((item)=> {
-                        return <div class="cart-item" key={item.id}>
-                            <img class="cartImage" src={item.img}/>
+                        return <div className="cart-item" key={item.id}>
+                            <img className="cartImage" src={item.img}/>
                             {item.name} - {item.price}€
-                            <button class="removeItem" onClick={()=>this.removeProduct(item)}>Rimuovi</button>
+                            <button className="removeItem" onClick={()=>this.removeProduct(item)}>Rimuovi</button>
                         </div>
                     })}
-                    <div class="total">Totale: {this.state.total}€</div>
+                    <div className="total">Totale: {this.state.total}€</div>
 
                     <form onSubmit={this.sendOrder}>
-                        <div class="nameandsurname">
-                        <label>Nome e cognome: <input type="text" class="dati" value={this.state.value} name="clientName" onChange={this.handleInputChange} required/></label>
+                        <div className="nameandsurname">
+                        <label>Nome e cognome: <input type="text" className="dati" value={this.state.value} name="clientName" onChange={this.handleInputChange} required/></label>
                         </div>
                             <br/>
-                        <label class="ccn">Inserisci numero carta: <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX" required/></label>
+                        <label className="ccn">Inserisci numero carta: <input id="ccn" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="16" placeholder="XXXX-XXXX-XXXX-XXXX" required/></label>
                         <br/>
-                        <button type="submit" class="checkout">Checkout</button>
+                        <button type="submit" className="checkout">Checkout</button>
                         <div>{this.state.insertOrder}</div>
                     </form>
                     </div>

@@ -12,7 +12,7 @@ class Navbar extends React.Component {
             <nav>
                 <h1>Benvenuti sul sito ufficiale di Mc Bitonto's</h1>
                 <img className="logo" src={logo}/>
-                <div class="back">
+                <div className="back">
                     <a href="/">  Torna indietro alla selezione profilo</a>
                 </div>
             </nav>
