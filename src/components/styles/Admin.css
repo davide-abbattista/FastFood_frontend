@@ -56,3 +56,11 @@ div select {
     max-width: 1000px;
     margin-left: 20px;
 }
+
+.modifie {
+    display: none;
+}
+
+.modifieShow {
+    display: block;
+}

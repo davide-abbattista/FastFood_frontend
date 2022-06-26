@@ -19,15 +19,25 @@ class Admin extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.modifieElement = this.modifieElement.bind(this);
     }
+
     componentDidMount() {
         this.getProducts();
     }
+
     deleteProduct = (id) => {
         mainService.deleteProduct(id).then(data => {
             console.log(data)
         })
-        window.location.reload(false);
+        setTimeout(function() {
+            window.location.reload()
+        }, 1000)
     }
+
+    showModifieDiv = () => {
+        const modifieDiv = document.getElementById('modifie');
+        modifieDiv.setAttribute("class", "modifieShow");
+    }
+
     modifieElement = (product) => {
         document.getElementById("1").value = product.name;
         document.getElementById("2").value = product.ingredients;
@@ -57,11 +67,11 @@ class Admin extends React.Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value,
         });
     }
+
     handleSubmit(id) {
         const requestBody = {
             type: this.state.type,
@@ -72,6 +82,9 @@ class Admin extends React.Component {
         }
         console.log(requestBody);
         mainService.updateProduct(requestBody,id).then(data=>console.log(data))
+        setTimeout(function() {
+            window.location.reload()
+        }, 1000)
     }
 
     render () {
@@ -79,7 +92,7 @@ class Admin extends React.Component {
             <div className="all">
                 <div className="products">
                     <h2 className="title">Modifica o elimina i prodotti</h2>
-                    <p className="modInfo">Cliccando "Modifica", il form a destra per la modifica verrà popolato con le informazioni del prodotto selezionato che potrai modificare liberamente!</p>
+                    <p className="modInfo">Cliccando "Modifica", il form per la modifica verrà mostrato e popolato con le informazioni del prodotto selezionato che potrai modificare liberamente!</p>
                     {this.state.products.map((product) => (
                         <div className="products-container">
                             <img className="product-image" src={product.img}/>
@@ -87,7 +100,7 @@ class Admin extends React.Component {
                             <p>Ingredienti: <em>{product.ingredients}</em></p>
                             <div className="buttons">
                             <p>{product.price} €</p>
-                            <button className="addToCart" onClick={()=>this.modifieElement(product)}>Modifica
+                            <button className="addToCart" onClick={()=>{this.showModifieDiv(); this.modifieElement(product)}}>Modifica
                             </button>
                             <button className="delete" onClick={()=>this.deleteProduct(product._id)}>Elimina</button>
                             </div>
@@ -98,7 +111,7 @@ class Admin extends React.Component {
                 <div className="form">
                     <AdminForm />
                 </div>
-                <div className="modifie">
+                <div className="modifie" id="modifie">
                     <h4 className="modifieTitle">Modifica un prodotto</h4>
                     <form>
                         <label>Seleziona una categoria: <select name="type" id="5" onChange={this.handleInputChange} value={this.state.value} required>
@@ -111,7 +124,7 @@ class Admin extends React.Component {
                         <br/>
                         <label>Ingredienti: <input type="text" id="2" placeholder={this.state.modifiedProduct.ingredients} name="ingredients" value={this.state.value} onChange={this.handleInputChange}/></label>
                         <br/>
-                        <label>Prezzo: <input type="number" id="3" placeholder={this.state.modifiedProduct.price} name="price" step=".01" value={this.state.value} onChange={this.handleInputChange} required/></label>
+                        <label>Prezzo: <input type="number" id="3" placeholder={this.state.modifiedProduct.price} name="price" step=".01" min="0.5" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>
                         <label>Immagine: <input type="text" id="4" placeholder={this.state.modifiedProduct.img} name="img" value={this.state.value} onChange={this.handleInputChange} required/></label>
                         <br/>

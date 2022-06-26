@@ -10,6 +10,9 @@ nav {
     margin-left: auto;
     margin-right: 7px;
 }
+.backHide {
+    display: none;
+}
 .back a {
     color: white;
     text-decoration: none;
@@ -23,6 +26,12 @@ nav {
     height: 90px;
     margin-left: auto;
     margin-right: 140px;
+}
+.logoHome {
+    width: 90px;
+    height: 90px;
+    margin-left: 520px;
+    margin-right: auto;
 }
 nav h1 {
     font-size: 19px;

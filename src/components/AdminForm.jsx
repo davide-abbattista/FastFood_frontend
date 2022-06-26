@@ -19,7 +19,6 @@ class AdminForm extends React.Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value,
         });
@@ -36,7 +35,9 @@ class AdminForm extends React.Component {
         }
         console.log(requestBody);
         mainService.createProduct(requestBody).then(data=>console.log(data));
-        //window.location.reload(false);
+        setTimeout(function() {
+            window.location.reload()
+        }, 1000)
     }
 
     render () {
@@ -54,7 +55,7 @@ class AdminForm extends React.Component {
                     <br/>
                     <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange}/></label>
                     <br/>
-                    <label>Prezzo: <input type="number" value={this.state.value} name="price" step=".01" onChange={this.handleInputChange} min="0.5" required/></label>
+                    <label>Prezzo: <input type="number" value={this.state.value} name="price" step=".01" min="0.5" onChange={this.handleInputChange} required/></label>
                     <br/>
                     <label>Immagine: <input type="text" value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
                     <br/>

@@ -6,7 +6,6 @@ class Kitchen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {orders: []}
-
     }
 
     componentDidMount() {
@@ -28,7 +27,9 @@ class Kitchen extends React.Component {
         mainService.concludeOrder(id).then(data => {
             console.log(data);
         })
-        window.location.reload(false);
+        setTimeout(function() {
+            window.location.reload()
+        }, 1000)
     }
     render() {
         return (

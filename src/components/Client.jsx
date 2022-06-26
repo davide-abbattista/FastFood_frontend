@@ -56,13 +56,10 @@ class Client extends React.Component {
             this.setState({productIDs: productIDs});
         };
 
-
-
     handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value,
             totalCart: this.state.total
@@ -85,9 +82,7 @@ class Client extends React.Component {
         setTimeout(function() {
             window.location.reload()
         }, 1000)
-        //window.location.reload(false);
     }
-
 
     render() {
         return(

@@ -9,6 +9,17 @@ class Home extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.changeNav();
+    }
+
+    changeNav = () => {
+        const back = document.getElementById("back");
+        back.setAttribute("class", "backHide");
+        const logo = document.getElementById("logo");
+        logo.setAttribute("class", "logoHome");
+    }
+
     render() {
         return (
             <div className="home">
