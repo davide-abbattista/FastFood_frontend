@@ -36,7 +36,7 @@ class AdminForm extends React.Component {
         }
         console.log(requestBody);
         mainService.createProduct(requestBody).then(data=>console.log(data));
-        window.location.reload(false);
+        //window.location.reload(false);
     }
 
     render () {
@@ -54,7 +54,7 @@ class AdminForm extends React.Component {
                     <br/>
                     <label>Ingredienti: <input type="text"  value={this.state.value} name="ingredients" onChange={this.handleInputChange}/></label>
                     <br/>
-                    <label>Prezzo: <input type="number" value={this.state.value} name="price" onChange={this.handleInputChange} required/></label>
+                    <label>Prezzo: <input type="number" value={this.state.value} name="price" step=".01" onChange={this.handleInputChange} min="0.5" required/></label>
                     <br/>
                     <label>Immagine: <input type="text" value={this.state.value} name="img" onChange={this.handleInputChange} required/></label>
                     <br/>

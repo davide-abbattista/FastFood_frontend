@@ -58,3 +58,11 @@ export default {
         }).then(res=>res.json()).then(data=>console.log(data))
     }
 };
+
+/*            if (res.statusCode = 500) {
+                alert("Errore")
+            } else {
+                res.json()
+            }
+
+ */
