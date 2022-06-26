@@ -74,14 +74,18 @@ class Client extends React.Component {
             total: this.state.totalCart
         }
         console.log(requestBody);
-        mainService.createOrder(requestBody).then(data=> {
-            this.setState({
-                insertOrder: data.message
-            })
-        });
-        setTimeout(function() {
-            window.location.reload()
-        }, 1000)
+        if (this.state.productIDs.length !== 0) {
+            mainService.createOrder(requestBody).then(data=> {
+                this.setState({
+                    insertOrder: data.message
+                })
+            });
+            setTimeout(function() {
+                window.location.reload()
+            }, 1000)
+        } else {
+            alert("Inserisci almeno un prodotto nel carrello")
+        }
     }
 
     render() {
@@ -118,7 +122,7 @@ class Client extends React.Component {
                         <label className="ccn">Inserisci numero carta: <input id="ccn" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="16" placeholder="XXXX-XXXX-XXXX-XXXX" required/></label>
                         <br/>
                         <button type="submit" className="checkout">Checkout</button>
-                        <div>{this.state.insertOrder}</div>
+                        <div id="insertOrder">{this.state.insertOrder}</div>
                     </form>
                     </div>
 

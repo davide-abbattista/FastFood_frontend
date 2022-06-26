@@ -7,14 +7,18 @@ export default {
         return fetch(PRODUCTS_URL, {
             method: "get",
             headers: HEADERS
-        }).then(res => res.json()).then(data=>data);
+        })
+            .then(res => res.json()).then(data=>data)
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
     getOrders: () => {
         return fetch(ORDERS_URL, {
             method: "get",
             headers: HEADERS
-        }).then(res => res.json()).then(data=>data);
+        })
+            .then(res => res.json()).then(data=>data)
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
     concludeOrder:(id) => {
@@ -26,8 +30,10 @@ export default {
             if (res.status === 500) {
                 alert("Si è vericato un errore sul server. Riprova!");
             }
-            res.json();
-        }).then(data=>data);
+            return res.json();
+        })
+            .then(data=>console.log(data))
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
     deleteProduct:(prodId) => {
@@ -39,8 +45,10 @@ export default {
             if (res.status === 500) {
                 alert("Si è vericato un errore sul server. Riprova!");
             }
-            res.json();
-        }).then(data=>data);
+            return res.json();
+        })
+            .then(data=>console.log(data))
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
     createProduct: (requestBody) => {
@@ -52,8 +60,10 @@ export default {
             if (res.status === 500) {
                 alert("Si è vericato un errore sul server. Riprova!");
             }
-            res.json();
-        }).then(data=>data);
+            return res.json();
+        })
+            .then(data=>data)
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
     createOrder: (requestBody) => {
@@ -65,8 +75,10 @@ export default {
             if (res.status === 500) {
                 alert("Si è vericato un errore sul server. Riprova!");
             }
-            res.json();
-        }).then(data=>data);
+            return res.json()
+        })
+            .then(data=>data)
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
     updateProduct: (requestBody,id) => {
@@ -79,7 +91,9 @@ export default {
             if (res.status === 500) {
                 alert("Si è vericato un errore sul server. Riprova!");
             }
-            res.json();
-        }).then(data=>data);
+            return res.json();
+        })
+            .then(data=>console.log(data))
+            .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     }
 };
