@@ -37,8 +37,6 @@ class Client extends React.Component {
         this.state.cart.splice(a,1);
         let b = this.state.productIDs.indexOf(item._id);
         this.state.productIDs.splice(b,1);
-        console.log(this.state.cart);
-        console.log(this.state.order);
         newTotal = newTotal -item.price;
         this.setState({total: newTotal});
     }
@@ -47,7 +45,6 @@ class Client extends React.Component {
             let {cart} = this.state;
             let {total}= this.state;
             cart.push(product);
-            console.log(cart);
             this.setState({cart:cart});
             total += product.price;
             this.setState({total:total});
@@ -73,7 +70,6 @@ class Client extends React.Component {
             products: this.state.productIDs,
             total: this.state.totalCart
         }
-        console.log(requestBody);
         if (this.state.productIDs.length !== 0) {
             mainService.createOrder(requestBody).then(data=> {
                 this.setState({

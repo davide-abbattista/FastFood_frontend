@@ -32,7 +32,7 @@ export default {
             }
             return res.json();
         })
-            .then(data=>console.log(data))
+            .then(data=>data)
             .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
@@ -47,7 +47,7 @@ export default {
             }
             return res.json();
         })
-            .then(data=>console.log(data))
+            .then(data=>data)
             .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     },
 
@@ -93,7 +93,7 @@ export default {
             }
             return res.json();
         })
-            .then(data=>console.log(data))
+            .then(data=>data)
             .catch(error => alert("Si è verificato un errore di rete o il server non può essere trovato"));
     }
 };

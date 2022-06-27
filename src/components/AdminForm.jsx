@@ -33,8 +33,7 @@ class AdminForm extends React.Component {
             price: this.state.price,
             img: this.state.img
         }
-        console.log(requestBody);
-        mainService.createProduct(requestBody).then(data=>console.log(data));
+        mainService.createProduct(requestBody).then(data=>data);
         setTimeout(function() {
             window.location.reload()
         }, 1000)

@@ -25,9 +25,7 @@ class Admin extends React.Component {
     }
 
     deleteProduct = (id) => {
-        mainService.deleteProduct(id).then(data => {
-            console.log(data)
-        })
+        mainService.deleteProduct(id).then(data => data)
         setTimeout(function() {
             window.location.reload()
         }, 1000)
@@ -52,7 +50,6 @@ class Admin extends React.Component {
             price: product.price,
             img: product.img
         })
-        console.log(this.state);
     }
 
     getProducts() {
@@ -80,8 +77,7 @@ class Admin extends React.Component {
             price: this.state.price,
             img: this.state.img
         }
-        console.log(requestBody);
-        mainService.updateProduct(requestBody,id).then(data=>console.log(data))
+        mainService.updateProduct(requestBody,id).then(data=>data)
         setTimeout(function() {
             window.location.reload()
         }, 1000)

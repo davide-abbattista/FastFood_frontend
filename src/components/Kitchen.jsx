@@ -24,16 +24,14 @@ class Kitchen extends React.Component {
     }
 
     concludeOrder(id) {
-        mainService.concludeOrder(id).then(data => {
-            console.log(data);
-        })
+        mainService.concludeOrder(id).then(data => data);
         setTimeout(function() {
             window.location.reload()
         }, 1000)
     }
     render() {
         return (
-            <div>
+            <div className="kitchen">
                 <div className="header">
                     <h3 className="title">Lista ordini</h3>
                     <button className="updatePage" onClick={()=>this.refreshPage()}>Ricerca nuovi ordini</button>
