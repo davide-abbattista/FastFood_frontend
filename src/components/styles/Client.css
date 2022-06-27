@@ -4,17 +4,12 @@
 }
 .all {
     display: flex;
-    background-image: url("https://i.ibb.co/N3TfGDP/r-Razf-H-1.jpg");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center;
 }
 
 .products {
     flex:3;
     margin-bottom: 20px;
 }
-
 
 .cart  {
     flex: 1;

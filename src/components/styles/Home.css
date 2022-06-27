@@ -1,3 +1,11 @@
+html {
+    background: url("https://i.ibb.co/N3TfGDP/r-Razf-H-1.jpg") no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .home {
     display: flex;
     justify-content: space-evenly;

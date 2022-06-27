@@ -31,7 +31,7 @@ class Kitchen extends React.Component {
     }
     render() {
         return (
-            <div className="kitchen">
+            <div>
                 <div className="header">
                     <h3 className="title">Lista ordini</h3>
                     <button className="updatePage" onClick={()=>this.refreshPage()}>Ricerca nuovi ordini</button>
@@ -53,7 +53,6 @@ class Kitchen extends React.Component {
                     <button className="completeOrder" onClick={()=>this.concludeOrder(ordine._id)}>Completa ordine</button>
                 </div>
                 ))}
-
             </div>
         )
     }
