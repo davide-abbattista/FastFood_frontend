@@ -6,21 +6,23 @@ import Kitchen from "./components/Kitchen";
 import Admin from "./components/Admin";
 
 function App() {
-    //routing
     let Component
     switch (window.location.pathname) {
         case "/" :
-            Component = Home
-            break
+            Component = Home;
+            break;
         case "/clients":
-            Component = Clients
-            break
+            Component = Clients;
+            break;
         case "/kitchen":
-            Component = Kitchen
-            break
+            Component = Kitchen;
+            break;
         case "/admin":
-            Component = Admin
-            break
+            Component = Admin;
+            break;
+        default:
+            window.location.href = "/";
+            break;
     }
 
   return (

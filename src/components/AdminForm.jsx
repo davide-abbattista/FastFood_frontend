@@ -10,7 +10,7 @@ class AdminForm extends React.Component {
             ingredients: "",
             price: 0,
             img: ""
-        }
+        };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -32,11 +32,11 @@ class AdminForm extends React.Component {
             ingredients: this.state.ingredients,
             price: this.state.price,
             img: this.state.img
-        }
+        };
         mainService.createProduct(requestBody).then(data=>data);
         setTimeout(function() {
             window.location.reload()
-        }, 1000)
+        }, 1000);
     }
 
     render () {

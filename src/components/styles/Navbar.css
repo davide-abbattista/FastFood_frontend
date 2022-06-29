@@ -6,32 +6,39 @@ nav {
     height: 75px;
     align-items: center;
 }
+
 .back {
     margin-left: auto;
     margin-right: 7px;
 }
+
 .backHide {
     display: none;
 }
+
 .back a {
     color: white;
     text-decoration: none;
     opacity: 30%;
 }
+
 .back a:hover {
     opacity: 100%;
 }
+
 .logo {
     width: 90px;
     height: 90px;
     margin: 0 auto;
 }
+
 .logoHome {
     width: 90px;
     height: 90px;
     margin-left: auto;
     margin-right: 30px;
 }
+
 nav h1 {
     font-size: 19px;
     margin-left: 10px;

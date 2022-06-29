@@ -12,7 +12,7 @@ class Client extends React.Component {
                 productIDs: [],
                 totalCart: 0,
                 insertOrder: ''
-            }
+            };
         this.addToCart = this.addToCart.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,8 +27,8 @@ class Client extends React.Component {
         mainService.getProducts().then(data => {
             this.setState({
                 products: data
-            })
-        })
+            });
+        });
     }
 
     removeProduct = (item) => {
@@ -69,19 +69,19 @@ class Client extends React.Component {
             clientName: this.state.clientName,
             products: this.state.productIDs,
             total: this.state.totalCart
-        }
+        };
         if (this.state.productIDs.length !== 0) {
             mainService.createOrder(requestBody).then(data=> {
                 this.setState({
                     insertOrder: data.message
-                })
+                });
             });
             setTimeout(function() {
                 window.location.reload()
-            }, 1000)
+            }, 1000);
         } else {
             alert("Inserisci almeno un prodotto nel carrello")
-        }
+        };
     }
 
     render() {
@@ -91,7 +91,7 @@ class Client extends React.Component {
                 <h2 className="title">Scegli tra un sacco di prodotti deliziosi!</h2>
                 {this.state.products.map((product)=>(
                     <div className="products-container" key={product._id}>
-                        <img className="product-image" src={product.img}/>
+                        <img className="product-image" src={product.img} alt="Immagine non disponibile"/>
                         <h3>{product.name}</h3>
                         <p>Ingredienti: <em>{product.ingredients}</em></p>
                         <p>Prezzo: {product.price} €</p>
@@ -103,13 +103,12 @@ class Client extends React.Component {
                     <h2 className="title">Carrello</h2>
                     {this.state.cart.map((item)=> {
                         return <div className="cart-item" key={item.id}>
-                            <img className="cartImage" src={item.img}/>
+                            <img className="cartImage" src={item.img} alt=""/>
                             {item.name} - {item.price}€
                             <button className="removeItem" onClick={()=>this.removeProduct(item)}>Rimuovi</button>
                         </div>
                     })}
                     <div className="total">Totale: {this.state.total}€</div>
-
                     <form onSubmit={this.sendOrder}>
                         <div className="nameandsurname">
                         <label>Nome e cognome: <input type="text" className="dati" value={this.state.value} name="clientName" onChange={this.handleInputChange} required/></label>
@@ -121,7 +120,6 @@ class Client extends React.Component {
                         <div id="insertOrder">{this.state.insertOrder}</div>
                     </form>
                     </div>
-
             </div>
         )
     }

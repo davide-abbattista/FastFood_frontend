@@ -5,7 +5,7 @@ import "./styles/Kitchen.css"
 class Kitchen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {orders: []}
+        this.state = {orders: []};
     }
 
     componentDidMount() {
@@ -16,8 +16,8 @@ class Kitchen extends React.Component {
         mainService.getOrders().then(data => {
             this.setState({
                 orders: data
-            })
-        })
+            });
+        });
     }
     refreshPage = () => {
         window.location.reload(false);
@@ -27,7 +27,7 @@ class Kitchen extends React.Component {
         mainService.concludeOrder(id).then(data => data);
         setTimeout(function() {
             window.location.reload()
-        }, 1000)
+        }, 1000);
     }
     render() {
         return (

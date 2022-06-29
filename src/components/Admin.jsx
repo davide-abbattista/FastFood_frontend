@@ -25,10 +25,10 @@ class Admin extends React.Component {
     }
 
     deleteProduct = (id) => {
-        mainService.deleteProduct(id).then(data => data)
+        mainService.deleteProduct(id).then(data => data);
         setTimeout(function() {
             window.location.reload()
-        }, 1000)
+        }, 1000);
     }
 
     showModifieDiv = () => {
@@ -49,15 +49,15 @@ class Admin extends React.Component {
             ingredients: product.ingredients,
             price: product.price,
             img: product.img
-        })
+        });
     }
 
     getProducts() {
         mainService.getProducts().then(data => {
             this.setState({
                 products: data
-            })
-        })
+            });
+        });
     }
 
     handleInputChange(event) {
@@ -76,11 +76,11 @@ class Admin extends React.Component {
             ingredients: this.state.ingredients,
             price: this.state.price,
             img: this.state.img
-        }
-        mainService.updateProduct(requestBody,id).then(data=>data)
+        };
+        mainService.updateProduct(requestBody,id).then(data=>data);
         setTimeout(function() {
             window.location.reload()
-        }, 1000)
+        }, 1000);
     }
 
     render () {
@@ -91,7 +91,7 @@ class Admin extends React.Component {
                     <p className="modInfo">Cliccando "Modifica", il form per la modifica verrà mostrato e popolato con le informazioni del prodotto selezionato che potrai modificare liberamente!</p>
                     {this.state.products.map((product) => (
                         <div className="products-container">
-                            <img className="product-image" src={product.img}/>
+                            <img className="product-image" src={product.img} alt="Modifica il prodotto inserendo un URL corretto per l'immagine"/>
                             <h3>{product.name}</h3>
                             <p>Ingredienti: <em>{product.ingredients}</em></p>
                             <div className="buttons">

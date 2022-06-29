@@ -23,7 +23,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="home">
-                <div className="selector" href="/clients">
+                <div className="selector">
                     <img className="icon" src={client} alt="cliente"/>
                     <br/>
                     <a href="/clients" className="a1" >Sono un cliente</a>
